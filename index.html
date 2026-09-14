@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>老照片修复盲测</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <p class="eyebrow">BLIND EVALUATION</p>
+        <h1>老照片修复效果盲测</h1>
+        <p class="subtitle">每题从七个匿名候选结果中选出你认为最好的两项。</p>
+      </header>
+
+      <section id="loading" class="notice">正在载入题目…</section>
+      <section id="app" hidden>
+        <div class="toolbar">
+          <div><strong id="progressText"></strong><span id="questionId" class="muted"></span></div>
+          <div class="toolbar-actions">
+            <button id="exportBtn" class="secondary">下载本地 CSV</button>
+            <button id="resetBtn" class="ghost">清除本机记录</button>
+          </div>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+
+        <details class="original" open>
+          <summary>查看原图（仅供对照）</summary>
+          <img id="originalImage" alt="原始老照片" />
+        </details>
+
+        <p class="instruction">请选择两项最佳结果。候选标签对每题都会重新随机排列。</p>
+        <section id="choices" class="choices" aria-label="匿名候选结果"></section>
+        <p id="selectionStatus" class="selection-status">已选择 0 / 2</p>
+
+        <div class="nav">
+          <button id="prevBtn" class="secondary">上一题</button>
+          <button id="nextBtn" disabled>保存并下一题</button>
+        </div>
+      </section>
+
+      <section id="complete" class="complete" hidden>
+        <h2>本轮投票已完成</h2>
+        <p>你的选择已保存在当前浏览器。请下载 CSV 并提交给组织者。</p>
+        <button id="exportCompleteBtn">下载本地 CSV</button>
+      </section>
+
+      <section id="error" class="notice error" hidden></section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

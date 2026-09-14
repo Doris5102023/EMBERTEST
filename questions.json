@@ -1,0 +1,15 @@
+[
+  {
+    "id": "q001",
+    "original": "assets/originals/q001.png",
+    "candidates": [
+      { "slot": "s1", "image": "assets/candidates/q001-s1.png" },
+      { "slot": "s2", "image": "assets/candidates/q001-s2.png" },
+      { "slot": "s3", "image": "assets/candidates/q001-s3.png" },
+      { "slot": "s4", "image": "assets/candidates/q001-s4.png" },
+      { "slot": "s5", "image": "assets/candidates/q001-s5.png" },
+      { "slot": "s6", "image": "assets/candidates/q001-s6.png" },
+      { "slot": "s7", "image": "assets/candidates/q001-s7.png" }
+    ]
+  }
+]
