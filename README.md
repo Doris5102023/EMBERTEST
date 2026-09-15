@@ -1,6 +1,16 @@
 # GitHub Pages 盲测投票站
 
-这是纯静态网页：每题展示七项匿名结果，评审必须选两项最佳；投票记录仅保存在评审浏览器，点击“下载本地 CSV”后交给组织者汇总。
+这是 GitHub Pages 静态网页：每题展示七项匿名结果，评审必须选两项最佳。配置 Supabase 后，选择会自动上传至数据库；本地 CSV 下载仍保留为离线备份。
+
+## 配置 Supabase 在线收集
+
+1. 创建 Supabase 项目，在 **Authentication → Providers → Anonymous Sign-ins** 启用匿名登录。
+2. 在 **SQL Editor** 中执行完整的 `supabase-schema.sql`。它只允许评审插入自己的投票，公开网页无法读取、修改或删除数据库记录。
+3. 在 **Project Settings → API** 复制 `Project URL` 与 **anon public key**，替换 `supabase-config.js` 的两个占位符。
+4. 将站点推送到 GitHub Pages。`anon key` 可以公开；绝不可使用或上传 `service_role key`。
+5. 在 Supabase **Table Editor → votes** 查看投票，或导出 CSV。真实模型名只需用你私有的槽位映射表还原。
+
+未配置 Supabase 时，网站自动退回为本地 CSV 模式，不会丢失投票。
 
 ## 准备图片与私有映射
 

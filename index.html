@@ -19,11 +19,13 @@
         <div class="toolbar">
           <div><strong id="progressText"></strong><span id="questionId" class="muted"></span></div>
           <div class="toolbar-actions">
+            <button id="syncBtn" class="secondary">重新上传本机记录</button>
             <button id="exportBtn" class="secondary">下载本地 CSV</button>
             <button id="resetBtn" class="ghost">清除本机记录</button>
           </div>
         </div>
         <div class="progress"><div id="progressBar"></div></div>
+        <p id="syncStatus" class="sync-status" aria-live="polite"></p>
 
         <details class="original" open>
           <summary>查看原图（仅供对照）</summary>
@@ -42,12 +44,15 @@
 
       <section id="complete" class="complete" hidden>
         <h2>本轮投票已完成</h2>
-        <p>你的选择已保存在当前浏览器。请下载 CSV 并提交给组织者。</p>
+        <p id="completeMessage">正在确认投票是否已上传…</p>
+        <button id="syncCompleteBtn" class="secondary">重新上传本机记录</button>
         <button id="exportCompleteBtn">下载本地 CSV</button>
       </section>
 
       <section id="error" class="notice error" hidden></section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
