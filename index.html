@@ -1,54 +1,48 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>老照片修复盲测</title>
+    <title>Old Photo Restoration Blind Test</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="container">
       <header>
         <p class="eyebrow">BLIND EVALUATION</p>
-        <h1>老照片修复效果盲测</h1>
-        <p class="subtitle">每题从七个匿名候选结果中选出你认为最好的两项。</p>
+        <h1>Old Photo Restoration Blind Test</h1>
+        <p class="subtitle">Select the two best results out of seven anonymous candidates for each question.</p>
       </header>
-
-      <section id="loading" class="notice">正在载入题目…</section>
+      <section id="loading" class="notice">Loading questions…</section>
       <section id="app" hidden>
         <div class="toolbar">
           <div><strong id="progressText"></strong><span id="questionId" class="muted"></span></div>
           <div class="toolbar-actions">
-            <button id="syncBtn" class="secondary">重新上传本机记录</button>
-            <button id="exportBtn" class="secondary">下载本地 CSV</button>
-            <button id="resetBtn" class="ghost">清除本机记录</button>
+            <button id="syncBtn" class="secondary">Re-upload local records</button>
+            <button id="exportBtn" class="secondary">Download local CSV</button>
+            <button id="resetBtn" class="ghost">Clear local records</button>
           </div>
         </div>
         <div class="progress"><div id="progressBar"></div></div>
         <p id="syncStatus" class="sync-status" aria-live="polite"></p>
-
         <details class="original" open>
-          <summary>查看原图（仅供对照）</summary>
-          <img id="originalImage" alt="原始老照片" />
+          <summary>View original image (for reference only)</summary>
+          <img id="originalImage" alt="Original old photo" />
         </details>
-
-        <p class="instruction">请选择两项最佳结果。候选标签对每题都会重新随机排列。</p>
-        <section id="choices" class="choices" aria-label="匿名候选结果"></section>
-        <p id="selectionStatus" class="selection-status">已选择 0 / 2</p>
-
+        <p class="instruction">Please select the two best results. Candidate labels are randomly shuffled for each question.</p>
+        <section id="choices" class="choices" aria-label="Anonymous candidate results"></section>
+        <p id="selectionStatus" class="selection-status">Selected 0 / 2</p>
         <div class="nav">
-          <button id="prevBtn" class="secondary">上一题</button>
-          <button id="nextBtn" disabled>保存并下一题</button>
+          <button id="prevBtn" class="secondary">Previous</button>
+          <button id="nextBtn" disabled>Save and Next</button>
         </div>
       </section>
-
       <section id="complete" class="complete" hidden>
-        <h2>本轮投票已完成</h2>
-        <p id="completeMessage">正在确认投票是否已上传…</p>
-        <button id="syncCompleteBtn" class="secondary">重新上传本机记录</button>
-        <button id="exportCompleteBtn">下载本地 CSV</button>
+        <h2>Voting for this round is complete</h2>
+        <p id="completeMessage">Verifying whether votes have been uploaded…</p>
+        <button id="syncCompleteBtn" class="secondary">Re-upload local records</button>
+        <button id="exportCompleteBtn">Download local CSV</button>
       </section>
-
       <section id="error" class="notice error" hidden></section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
